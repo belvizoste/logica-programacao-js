@@ -8,3 +8,4 @@ console.log(`A multiplicação dos números é ${numero1*numero2}`);
 console.log(`A divisão dos números é ${numero1/numero2}`); 
 console.log(`O resto dos números é ${numero1%numero2}`); 
 
+gj 

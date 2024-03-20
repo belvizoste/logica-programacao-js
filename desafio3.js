@@ -6,37 +6,42 @@
 //Kelvin	Celsius	tC = tK - 273.15
 //Kelvn	Fahrenheit	tF = tK * 9/5 - 459.67
 
+const
+temperaturaAtual = parseFloat (window.prompt ('Digite o valor da temperatura:'));
+
+if (!isNaN(temperaturaAtual)) {
 
 const 
-    temperaturaAtual = parseFloat (window.prompt ('Digite o valor da temperatura:')),
-    escalaAtual = window.prompt ('Digite a escala da sua temperatura atual: (C, F ou K)').toUpperCase(),
-    escalaConvertida = window.prompt ('Digite a nova escala do valor: (C, F ou K)').toUpperCase(),
-    celsius = 'C',
-    fahrenheit = 'F',
-    kelvin = 'K'
+ escalaAtual = window.prompt ('Digite a escala da sua temperatura atual: (C, F ou K)').toUpperCase(),
+ escalaConvertida = window.prompt ('Digite a nova escala do valor: (C, F ou K)').toUpperCase(),
+ celsius = 'C',
+ fahrenheit = 'F',
+ kelvin = 'K';
 
-
-if (escalaAtual == celsius) {
-    if ( escalaConvertida == fahrenheit) {
-        window.alert(`A temperatura de ${temperaturaAtual}ºC quando convertida é igual a ${(temperaturaAtual * 9/5)+32}ºF.`) ;
-     } else {
+   if (escalaAtual === celsius) {
+      if (escalaConvertida === fahrenheit) {
+       window.alert(`A temperatura de ${temperaturaAtual}ºC quando convertida é igual a ${(temperaturaAtual * 9/5)+32}ºF.`) ;
+     } else if (escalaConvertida === kelvin) {
         window.alert(`A temperatura de ${temperaturaAtual}ºC quando convertida é igual a ${temperaturaAtual + 273.15}ºK.`);
-     }
-}  if (escalaAtual == fahrenheit) {
-    if ( escalaConvertida == celsius) {
+      } else { 
+         window.alert (`A escala não é válida, digite uma escala DIFERENTE da atual`)
+      }
+   } else if (escalaAtual === fahrenheit) {
+      if ( escalaConvertida === celsius) {
         window.alert(`A temperatura de ${temperaturaAtual}ºF quando convertida é igual a ${(temperaturaAtual  - 32) * 5/9}ºC.`);
-     } else  {
+     } else if (escalaConvertida === kelvin)  {
         window.alert(`A temperatura de ${temperaturaAtual}ºF quando convertida é igual a ${(temperaturaAtual  + 459.67) * 5/9}ºK .`);
+     } else {
+      window.alert(`A escala não é válida, digite uma escala DIFERENTE da atual`)
      }
-} if (escalaAtual == kelvin) {
-    if ( escalaConvertida == celsius) {
+} else  if (escalaAtual === kelvin) {
+       if ( escalaConvertida === celsius) {
         window.alert(`A temperatura de ${temperaturaAtual}ºK quando convertida é igual a ${temperaturaAtual - 273.15}ºC.`);
-     } else  {
+     } else if (escalaConvertida === fahrenheit) {
         window.alert(`A temperatura de ${temperaturaAtual}ºK quando convertida é igual a ${temperaturaAtual  * 9/5 - 459.67}ºF.`);
+     } else {
+      window.alert(`A escala não é válida, digite uma escala DIFERENTE da atual.`)
      }
-}  if (escalaAtual, escalaConvertida, temperaturaAtual != fahrenheit, kelvin, celsius) {
-   window.alert(`O dados de entrada não são validos`)
-}
-
-
+   }
+} else { window.alert (`O valor digitado não é válido, por favor digite um valor numérico.`)}
 

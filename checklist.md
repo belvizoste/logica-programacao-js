@@ -27,4 +27,8 @@ code -r nomedorepositoriolocal
 ~~~
 12. Faça login no VS Code local para sincronizar suas extensões e temas;
 13. Ative o salvamento automático _(Auto Save)_
+14. Para clonar um repositório e abrir automáticamente a pasta, se usa: 
+~~~bash
+git clone https://github.com/usuario/nomedorepoitório.git | code -r nomedorepositório 
+~~~
 

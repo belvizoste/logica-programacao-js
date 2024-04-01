@@ -35,8 +35,10 @@
     <h2> Conversor de Temperatura </h2>
 
     <form action="">
+
+
         <label for="valorTemperatura"> Temperatura: </label>
-        <input type="number", id="valorTemperatura">
+        <input type="number" id="valorTemperatura">
 
         <label for="escalaAtual"> De: </label> 
         <select id="escalaAtual"> <!-- @TODO conferir nome dos atributos  no desafio 3-->
@@ -52,15 +54,17 @@
             <option value="K"> Kelvin </option>
         </select>
 
-        <button type="button"> Converter </button>
-        <button type="reset"> Limpar </button>
+        <button type="button" id="btConverteTemp"> Converter </button>
+        <button type="reset" id="btLimpaTemp"> Limpar </button>
     </form>
 
-    <div id=""></div>
+    <div id="resultadoTemp"></div>
 
     <script src ="desafio2.js"></script>
     <script src="desafio3.js"></script>
     <script>
+
+        // desafio 2
         document.querySelector('#btCalImc'). addEventListener('click', function (){
             const peso = document.querySelector('#peso').value;
             const altura = document.querySelector('#altura').value;
@@ -68,7 +72,43 @@
             console.log(imc); 
             document.querySelector('#resultadoIMC').innerHTML = imc;
         }); 
-       
+            // desafio 2
+
+            // desafio 3
+        document.querySelector('#btConverteTemp').addEventListener('click', function () {
+            const temperaturaAtual = document.querySelector('#valorTemperatura').value; 
+            const escalaAtual = document.querySelector('#escalaAtual').value;
+            const escalaConvertida = document.querySelector('#escalaConvertida').value;
+
+            const conversao = converteTemperatura(temperaturaAtual, escalaAtual, escalaConvertida);
+
+         document.querySelector('#resultadoTemp').innerHTML = `Temperatura convertida: ${conversao.temperaturaConvertida + conversao.escalaConvertida}`;
+        });
+
+        document.querySelector('#btLimpaTemp').addEventListener('click', function () {
+            document.querySelector('#resultadoTemp').innerHTML = '';
+        });
+
+
+
+
+
+            // desafio 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
 
 </body>

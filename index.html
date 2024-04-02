@@ -8,10 +8,37 @@
 </head>
 <body>
     <h1>Meus programas:</h1>
-    <button type="button" onclick="calculaIMC()"> Calculadora Imc </button>
-    <button type="button" onclick="converteTemperatura()"> Conversor de Temperatura </button>
 
-    <!-- PARA CALCULAR O IMC -->
+    <h2> Exercícios </h2>
+    <nav> 
+        <ul>
+            <li> 
+                <a href="classificacao-triangulo.html"> Classificação dos Triângulos - Exercício 1 </a>
+            </li>
+            <li>
+                <a href="descontos-funcionarios.html"> Desconto de Funcionários - Exercício 2 </a>
+            </li>
+            <li>
+                <a href="placar.html"> Placar de Jogo de Futebol - Exercício 3 </a>
+            </li>
+            <li>
+                <a href="busca-nome.html"> Busca de nome - Exercício 4 </a>
+            </li>
+            <li> 
+                <a href="posto-de-gasolina.html"> Posto de Gasolina - Exercício 5 </a>
+            </li>
+            <li>
+                <a href="produto-com-desconto.html"> Produto com Descontos - Exercício 6 </a>
+            </li>
+            <li>
+                <a href="taxa-natalidade-mortalidade.html"> Taxa de Natalidade e Mortalidade - Exercício 7 </a>
+            </li>
+        </ul>
+    </nav>
+
+
+
+    <!---------------------------- PARA CALCULAR O IMC ------------------------------------------------------>
     <h2> Calculadora IMC </h2>
     <!-- Formulários de dados e botões do cálculo do IMC -->
     <form action=""id = "formIMC">
@@ -26,12 +53,12 @@
                                 
         <button type="button" id="btCalImc"> Calcular IMC </button>
         <button type="reset" id="btlimpaIMC" onclick = "document.querySelector('#resultadoIMC').innerHTML = ''"> Limpar </button>
-        
+
     </form>
     <!-- Bloco de texto que apresenta o resultado do cálculo -->
     <div id ="resultadoIMC"> 
     </div>
-
+ <!-- --------------------------------- CONVERSOR DE TEMPERATURA ---------------------------------------- -->
     <h2> Conversor de Temperatura </h2>
 
     <form action="">
@@ -75,6 +102,7 @@
             // desafio 2
 
             // desafio 3
+
         document.querySelector('#btConverteTemp').addEventListener('click', function () {
             const temperaturaAtual = document.querySelector('#valorTemperatura').value; 
             const escalaAtual = document.querySelector('#escalaAtual').value;
@@ -88,10 +116,6 @@
         document.querySelector('#btLimpaTemp').addEventListener('click', function () {
             document.querySelector('#resultadoTemp').innerHTML = '';
         });
-
-
-
-
 
             // desafio 3
 

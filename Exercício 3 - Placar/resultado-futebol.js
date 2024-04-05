@@ -6,19 +6,20 @@
 
   function placar(timeA, timeB){
 
-     let   
-      timeA,
-      timeB,
-      resultadoPartida,
-      mensagemErro;
+   
+      timeA = Number(timeA)
+      timeB = Number(timeB)
+
+      let
+      resultadoPartida, mensagemErro; 
 
     if (!isNaN (timeA) && !isNaN (timeB)) {
      
         if (timeA > timeB) {
-            resultadoPartida = `O $timeA venceu o $timeB`;
+            resultadoPartida = `O ${timeA} venceu o ${timeB}`;
 
         } else if (timeB > timeA) {
-            resultadoPartida = `O $timeB venceu o $timeA`;
+            resultadoPartida = `O ${timeB} venceu o ${timeA}`;
 
         } else {
             resultadoPartida = `A partida terminou em empate entre os times`; 

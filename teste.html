@@ -1,0 +1,77 @@
+<!--  -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Teste de Lógica </title>
+</head>
+<body>
+
+    <h1> Placar de Jogo </h1>
+    
+    
+    <form action=""> <!-- form tem função para o reset/limpeza dos dados na página -->
+    <label for="timeA"> Digite o placar do time A:  </label>
+    <input type="number" id="timeA" step="0" min="0">
+    
+    <label for="timeB"> Digite o placar do time B:  </label>
+    <input type="number" id="timeB" step="0" min="0">
+
+    <button type="button" id="btResultadoFinal"> Definir o resultado final </button>
+    <button type="reset" id="btLimpar"> Limpar</button>
+    </form>
+
+    <div id="mostraResultado"></div> 
+    <!-- essa div serve pra mostrar o resultado na página -->
+
+    <script>
+
+        //(document acha esse id do botão de resultado) (quando "escutar" um clique pegue os valores das const de a e b no "document.querySelector" da id do time A ou B no label)
+        document.querySelector('#btResultadoFinal').addEventListener('click', () => {
+
+            const timeA = Number(document.querySelector('#timeA').value); // armazenamento dos dados digitados no botão do time A na variável timeA 
+
+            const timeB = Number(document.querySelector('#timeB').value); // armazenamento dos dados digitados no botão do time B na variável timeB
+
+             const resultadoFinal = comparaPlacar(timeA, timeB ); // mandando os parametros para a function abaixo e armazenando os dados recebidos da parte lógica na variável "resultadoFinal"
+            
+             document.querySelector('#mostraResultado').innerHTML = resultadoFinal;
+        })  
+
+        document.querySelector('#btLimpar').addEventListener('click', () =>{
+
+             document.querySelector('#mostraResultado').innerHTML = ""; 
+
+            
+        })
+//// função que recebe os valores das consts de A e B do " document.querySelector" acima ////////////////// 
+
+        //comparaPlacar => nome da função / as informações dentro de () são os dados com que a função vai trabalhar 
+
+        
+        function comparaPlacar(timeA, timeB){ 
+
+        //parte lógica do problema
+            let resultado, msgErro; //se usa let para a mensagem pq as informações nela não são fixas, além de deixarem o código leve!!
+
+            if (timeA > timeB) {
+               resultado =  "O vencedor é o time A";
+
+            } else if (timeB > timeA){
+                resultado = "O vencedor é o time B"; 
+
+            } else {
+                resultado = "A partida terminou em empate entre os times";
+
+            } return resultado; //é o que retorna os valores da comparação, MUITO IMPORTANTE!!
+        }
+
+
+
+    </script>
+
+
+
+</body>
+</html>

@@ -11,4 +11,5 @@ Escreva um programa que leia o número de litros vendidos e o tipo de compustív
 Utilize a tabela de preços:
 
 Álcool: R$ 2,89
-Gasolina: R$ 5,19*/
+Gasolina: R$ 5,19*/ 
+

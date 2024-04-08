@@ -8,13 +8,14 @@
 <body>
     <h1> Busca de nomes </h1>
 
-    <label for="listaNome">Liste 10 nomes: </label>
-    <input type="text" id="listaNome">
+    <form action="">
+    <label for="nomeInclusao"> Nome para incluir: </label>
+    <input type="text" id="nomeInclusao">
 
     <button type="button" id="btSalvar"> Salvar </button>
     <button type="button" id="btEnviarNomes"> Enviar todos os nomes </button>
     <button type="reset" id="btLimpar"> Limpar </button>
-
+    </form>
     <script>
 
         document.querySelector('#btSalvar').addEventListener('click', () => {

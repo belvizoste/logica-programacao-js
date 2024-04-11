@@ -76,28 +76,28 @@ button:active {
 
 }
 
-#btClassificar {
+.acao-positiva {
     background-color: #2078ec;
     color: #ffff;
 }
 
-#btClassificar:hover {
+.acao-positiva:hover {
     background-color: #2078ec;
 }
 
-#btClassificar:active {
+.acao-positiva:active {
     background-color: #1d6dd6;
 }
 
-#btLimpar {
+.acao-negativa {
     background-color: #e85391;
     color: #ffff;
 }
 
-#btLimpar:hover {
+.acao-negativa:hover {
     background-color: #e85391;
 }
 
-#btLimpar:active {
+.acao-negativa:active {
     background-color: #e82375;
 }

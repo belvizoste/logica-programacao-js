@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calculadora IMC </title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <a href="../index.html">↩ Home</a>
+    <h1 class="titulo-pagina"> Calculadora IMC </h1>
+    <!-- Formulários de dados e botões do cálculo do IMC -->
+
+    <main>
+
+        <form action=""id = "formIMC">
+
+            <label for="peso">Peso:</label> 
+            <input type="number" id="peso" step="0.5" min="0" max="1000">
+        
+            <label for="altura">Altura:</label>
+            <input type="number" id="altura" step="0.01" min="0" max="3.00"> 
+                                    <!-- step = indica a proporção e unidades usadas no label --> 
+            
+            <div class="botoes">              
+            <button type="button" id="btCalImc" class="acao-positiva"> Calcular IMC </button>
+            <button type="reset" id="btlimpaIMC" class="acao-negativa" onclick = "document.querySelector('#resultado').innerHTML = ''"> Limpar </button>
+            </div>
+
+        </form>
+        <!-- Bloco de texto que apresenta o resultado do cálculo -->
+            <div id ="resultado"></div>
+
+    </main>
+
+    <script>
+          document.querySelector('#btCalImc'). addEventListener('click', function (){
+            const peso = document.querySelector('#peso').value;
+            const altura = document.querySelector('#altura').value;
+            const imc = calculaIMC(peso, altura);
+            console.log(imc); 
+            document.querySelector('#resultado').innerHTML = imc;
+        }); 
+
+    </script>
+     <script src ="../desafio 2/desafio2.js"></script>
+</body>
+</html>

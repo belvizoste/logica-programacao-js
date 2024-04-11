@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <a href="../index.html">↩ Home</a>
+    <h1 class="titulo-pagina"> Busca de nomes </h1>
+
+    <form action="">
+            <label for="nomeInclusao"> Nome para incluir: </label>
+            <input type="text" id="nomeInclusao">
+        <div class="botoes">
+            <button type="button" id="btSalvar"> Salvar </button>
+        
+            <button type="reset" id="btLimpar"> Limpar </button>
+
+            <button type="button" id="btMostrar"> Mostrar </button>
+        </div>
+    </form>
+
+    <script>
+
+        let i = 0;
+        let nomes = []; //USAR ARRAY VAZIO PARA ARMAZENAR NOMES!!!!!
+
+        document.querySelector('#btSalvar').addEventListener('click', () => {
+
+            nomes [i] = document.querySelector('#nomeInclusão').value; 
+
+            i++ //adiciona um nome a mais sempre que a função acima for execultada 
+        })
+
+        document.querySelector('#btMostrar').addEventListener('click', () => { 
+            for (let i = 0; i < nomes.length; i++) {
+
+                document.querySelector('#resultado').innerHTML += nomes[i] + '<br>'; 
+            }
+            
+
+        })
+
+    </script>
+
+</body>
+</html>
+
+<!-- @TODO  
+1. colocar os links de reset e style em todos os projetos -->

@@ -9,7 +9,63 @@
 </head>
 <body>
     <a href="../index.html">↩ Home</a>
-    <h1>Produtos com desconto</h1>
+    <h1 class="titulo-pagina">Produtos com desconto</h1>
+
+    <main>
+
+        <form action="">
+
+            <div class="controle-form">
+                <label for="codigoProduto">Código do produto:</label>
+                <input type="number" id="codigoProduto" required autofocus>
+            </div>
+
+            <div class="controle-form">
+                <label for="qtdeProduto">Quantidade:</label>
+                <input type="number" id="qtdeProduto" required>
+            </div>
+
+            <div class="botoes">
+                <button type="button" class="acao-positiva" id="btCalcular">Calcular</button>
+                <button type="reset" class="acao-negativa">Limpar</button>
+            </div>
+        </form>
+
+        <div id="resultado"></div>
+
+    </main>
+
+    <script src="../js/produto-com-desconto.js"></script>
+
+    <script>
+
+        document.querySelector('#btCalcular').addEventListener('click', () => {
+
+            const codigoProduto = Number(document.querySelector('#codigoProduto').value);
+
+            const qtdeProduto = Number(document.querySelector('#qtdeProduto').value);
+
+            const produto = calculaDesconto(codigoProduto, qtdeProduto);
+
+            // criando o elemento
+            const pDescricao = document.createElement('p');
+            // atribuindo um valor para o innerHTML
+            pDescricao.innerHTML = produto.descricao; 
+            // adicionando um atributo para o elemento
+            pDescricao.setAttribute('data-produto', produto.codigo);
+
+            const pValorFinal = document.createElement('p');
+            pValorFinal.innerHTML = produto.valorFinal.toFixed(2);
+            // adicionando uma classe CSS ao elemento
+            pValorFinal.classList.add('monetario');
+
+            // anexando os elementos já criados ao div#resultado
+            document.querySelector('#resultado').append(pDescricao, pValorFinal);
+
+        });
+
+    </script>
+
 
 </body>
 </html>

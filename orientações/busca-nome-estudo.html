@@ -5,54 +5,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Busca de um nome</title>
+    <style>
+
+        .oculto {
+            display: none;
+        }
+
+        .acao-alternativa {
+            background-color: #5cf561;
+        }
+        
+        .acao-alternativa:hover {
+            background-color: #5cf561;
+        }
+
+        .acao-alternativa:active {
+            background-color: #2adf30;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Busca de um nome</h1>
+    <a href="../index.html">↩ Home</a>
 
-    <form action="">
-        <label for="nomeInclusao">Digite 10 nomes que deseja armazenar:</label>
-        <input type="text" id="nomeInclusao">
 
-        <button type="button" id="btCadastrar">Cadastrar</button> 
-        <!-- botão para cadastrar nome digitado -->
-        <button type="reset" id="btReset">Resetar</button>
+    <h1 class="titulo-pagina">Busca nome</h1>
+
+    <main>
+
+        <form action="">
+    
+            <div class="controle-form">
+                <label for="nome">Nome para incluir:</label>
+                <input type="text" id="nome" required autofocus>
+            </div>
+    
+            <div class="botoes">
+                <button type="reset" id="btCadastrar" class="acao-positiva">Cadastrar</button>
         
-        <button type="button" id="btMostrar">Mostrar</button>
-        <!-- botão de mostra os nomes já salvos -->
-    </form>
-    <div id="resultado"></div>
+                <button type="button" id="btPesquisar" class="oculto acao-alternativa">Pesquisar</button>
+            </div>
+    
+        </form>
+    
+        <div id="resultado"></div>
 
+    </main>
+    
     <script>
+        
+        let nomes = []; // array vazio chamado "nomes"
 
-        // declarar let antes de começar o processo de "document.queryselector"
+        document.addEventListener('keydown', (evento) => {
 
-        let i = 0; // contador de indice
-        let nomes = []; //array vazio
+            if (evento.key === 'Enter') {
+
+                evento.preventDefault();
+
+                if (nomes.length < 10) {
+
+                    document.querySelector('#btCadastrar').click();
+                } else {
+                    
+                    document.querySelector('#btPesquisar').click();
+                }
+            }
+        });
 
 
         document.querySelector('#btCadastrar').addEventListener('click', () => {
 
-            // [i] -> armazenemento dos nomes automático com os valores dos índices dentro da array 
-            nomes [i] = document.querySelector('#nomeInclusao').value;
+            nomes.push(document.querySelector('#nome').value);
+            
+            // ao atingir 10 nomes...
+            if (nomes.length === 10) {
 
-            i++;
-        })
+                // Troque a label do input "nome"
+                document.querySelector('label[for="nome"]').innerHTML = 'Nome para pesquisar';
 
-        document.querySelector('#btMostrar').addEventListener('click', () => {
-            //esse "for" funciona como um looping para os nomes colocados, o "i = 0" representa o índice do nome adicionado, depois de adicionado, a variável vai percorrer todos os nomes adicionados, se o novo nome for diferente, ele será adicionado. 
-             for (let i = 0; i < nomes.length; i++){ 
+                // Oculte o botão cadastrar
+                document.querySelector('#btCadastrar').classList.add('oculto');
+                
+                // Desoculte o botão pesquisar
+                document.querySelector('#btPesquisar').classList.remove('oculto');
 
-               document.querySelector('#resultado').innerHTML += nomes[i] + '<br>';
+            } 
+
+        });
+
+        document.querySelector('#btPesquisar').addEventListener('click', () => {
+
+            const nomeBuscado = document.querySelector('#nome').value;
+
+            // condição alternativa: (nomes.indexOf(nomeBuscado) >= 0)
+            if (nomes.includes(nomeBuscado)) {
+
+                document.querySelector('#resultado').innerHTML = `ACHEI na posição ${nomes.indexOf(nomeBuscado)}, "${nomes[nomes.indexOf(nomeBuscado)]}"`;
+                
+            } else {
+                
+                document.querySelector('#resultado').innerHTML = 'NÃO ACHEI';
+
             }
-        })
-
-        // TODO:
-        // 1. Quando clicar no botão cadastrar, limpar o input;
-        // 2. Limitar a 10 nomes para cadastrar
-        // 3. Após o 10º nome, o campo permite buscar um nome no array;
-        // 4. Exibir se o nome foi encontrado
+            
+        });
 
     </script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
 </body>
 </html>
+<!-- <a href="../index.html">↩ Home</a>
+<h1>Busca de um nome</h1>
+
+<form action="">
+    <label for="nomeInclusao">Digite 10 nomes que deseja armazenar:</label>
+    <input type="text" id="nomeInclusao">
+
+    <button type="button" id="btCadastrar">Cadastrar</button> 
+    <!-- botão para cadastrar nome digitado -->
+    <!-- <button type="reset" id="btReset">Resetar</button>
+    
+    <button type="button" id="btMostrar">Mostrar</button>
+    <!-- botão de mostra os nomes já salvos -->
+<!-- </form> -->
+<!-- <div id="resultado"></div> -->
+
+<!-- <script> -->
+
+    // declarar let antes de começar o processo de "document.queryselector"
+
+    // let i = 0; // contador de indice
+    // let nomes = []; //array vazio
+
+
+    // document.querySelector('#btCadastrar').addEventListener('click', () => {
+
+        // [i] -> armazenemento dos nomes automático com os valores dos índices dentro da array 
+        // nomes [i] = document.querySelector('#nomeInclusao').value; -->
+
+        // i++; //adiciona um nome a mais sempre que a função acima for execultada 
+    // })
+
+    // document.querySelector('#btMostrar').addEventListener('click', () => {
+        //esse "for" funciona como um looping para os nomes colocados, o "i = 0" representa o índice do nome adicionado, depois de adicionado, a variável vai percorrer todos os nomes adicionados, se o novo nome for diferente, ele será adicionado. 
+        //  for (let i = 0; i < nomes.length; i++){ 
+
+        //    document.querySelector('#resultado').innerHTML += nomes[i] + '<br>';
+        // }
+    // })
+
+    // TODO:
+    // 1. Quando clicar no botão cadastrar, limpar o input;
+    // 2. Limitar a 10 nomes para cadastrar
+    // 3. Após o 10º nome, o campo permite buscar um nome no array;
+    // 4. Exibir se o nome foi encontrado
+
+<!-- //</script>  -->

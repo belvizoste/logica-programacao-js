@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    min-height: 100vh; /*permite que o body tenha 100% do espaço de visualização disponível na página*/
+    background-color: #FFFBDA;
+}
+
+.logo-menu {
+    display: flex;
+    background-color: #E6B9DE;
+    height: 65px;
+    justify-content: center;
+
+}
+
+.logo span {
+    color: azure;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    display:inline-flex;
+    align-items: center;
+    height: 100%;
+    margin-inline-start: 2.5rem;
+}
+
+
+.menu-navegacao {
+    height: 65px;
+    background-color: #E6B9DE;
+
+}
+
+/* estilizar o item que é filho de uma class/id sem precisar atribuir uma class/id indivídual */
+.menu-navegacao>ul {
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+
+
+}
+
+/* espaço: combinador de descendência
+chevron (>): combinador de FILHOS!*/
+.menu-navegacao a {
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    color: azure;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    padding: 4px ;
+
+
+}  /* seguir hierarquia da disposição dos itens*/
+
+.menu-navegacao a:hover{
+    background-color: azure;
+    color: #E6B9DE;
+    transition-duration: 300ms;
+    font-weight: 600;
+    cursor: pointer;
+
+}
+
+.breadcrumbs {
+    height: 50px;
+}
+
+.breadcrumbs>ul {
+    height: 100%;
+    display: flex;
+    margin-inline-start: 1.5rem;
+}
+
+.breadcrumbs li {
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+}
+
+
+.breadcrumbs li:not(:last-child)::after {
+    content: " >";
+    color: #8d8888;
+}
+
+.breadcrumbs li:not(:last-child)>a {
+    color: #8d8888;
+}
+
+.breadcrumbs a {
+    padding: 0 1rem;
+    font-family: 'Roboto', sans-serif;
+    /* text-transform: capitalize; -> deixa a primeira letra maior que as demais*/
+}
+
+.breadcrumbs li:last-child>a {
+    background-color: #d3d7e5;
+    color: azure;
+    text-shadow: #8d8888;
+    padding: 8px;
+    border-radius: 16px;
+    margin-inline-start: 8px;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.breadcrumbs li:last-child>a:hover {
+    cursor: default;
+}

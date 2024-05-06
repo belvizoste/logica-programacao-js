@@ -1,30 +1,68 @@
-// <a> do Home
-const aHome = criaAncora ('/index.html'/ 'Home');
+const ancoras = [
+    { "url": "/index.html", "texto": "Home" },
+    { "url": "/html/classificacao-triangulo.html", "texto": "Exercício 1" },
+    { "url": "/html/desconto-funcionarios.html", "texto": "Exercício 2" },
+    { "url": "/html/placar-futebol.html", "texto": "Exercício 3" },
+];
+    
+function criaAncora(url, texto){
 
-// <li> do Home
-const liHome = document.createElement('li');
-liHome.appendChild(aHome);
+    const ancora = document.createElement('a');
+    ancora.setAttribute('href', url);
+    ancora.innerHTML = texto; 
 
-// <a> do exercício 1
-const aExercicio1 =criaAncora('/html/classificacao-triangulo.html', 'Exercicio 1');
+    return ancora; 
+};
+function criaLi(ancora) {
+    
+    const li = document.createElement('li');
+    li.appendChild(ancora);
+    
+    return li;
+};
 
-// <li> do exercício 1
-const liExercicio1 = document.createElement('li');
-liExercicio1.appendChild(aExercicio1);
+function criaUlNav(ancoras){
 
-// <a> do exercício 3
-const aExercicio3 =criaAncora('/html/placar-futebol.html', 'Exercicio 3');
+    const ul = document.createElement('ul');
+
+    ancoras.forEach(ancora => {
+        const a = criaAncora(ancoras.url, ancora.texto);
+        const li = criaLi(a); 
+        ul.appendChild(li);
+    });
+
+    return ul;
+};
+
+// // comentário de criação de ul e li 
+//<a> do Home
+// const aHome = criaAncora ('/index.html'/ 'Home');
+
+// // <li> do Home
+// const liHome = document.createElement('li');
+// liHome.appendChild(aHome);
+
+// // <a> do exercício 1
+// const aExercicio1 =criaAncora('/html/classificacao-triangulo.html', 'Exercicio 1');
+
+// // <li> do exercício 1
+// const liExercicio1 = document.createElement('li');
+// liExercicio1.appendChild(aExercicio1);
+
+// // <a> do exercício 3
+// const aExercicio3 =criaAncora('/html/placar-futebol.html', 'Exercicio 3');
 
 
-// <li> do exercício 3
-const liExercicio3 = document.createElement('li');
-liExercicio3.appendChild(aExercicio3);
+// // <li> do exercício 3
+// const liExercicio3 = document.createElement('li');
+// liExercicio3.appendChild(aExercicio3);
 
-// <ul> do menu
-const ulNav = document.createElement('ul');
-ulNav.append(liHome, liExercicio1, liExercicio3);
+// // <ul> do menu
+// const ulNav = document.createElement('ul');
+// ulNav.append(liHome, liExercicio1, liExercicio3);
 
 // <nav> do menu
+
 const nav = document.createElement('nav');
 nav.classList.add('menu-navegacao');
 nav.appendChild(ulNav);
@@ -59,11 +97,3 @@ linkNavbar.setAttribute('href', '/css/navbar.css');
 
 document.head.appendChild(linkNavbar);
 
-function criaAncora(url, texto){
-
-    const ancora = document.createElement('a');
-    ancora.setAttribute('href', url);
-    ancora.innerHTML = texto; 
-
-    return ancora; 
-}

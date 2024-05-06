@@ -1,69 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-body {
-    min-height: 100vh; /*permite que o body tenha 100% do espaço de visualização disponível na página*/
-    background-color: #FFFBDA;
-}
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 .logo-menu {
     display: flex;
-    background-color: #E6B9DE;
+    background-color:  #E6B9DE;
     height: 65px;
-    justify-content: center;
-
+    justify-content: space-between;
 }
 
 .logo span {
     color: azure;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 2rem;
     font-weight: 700;
-    display:inline-flex;
+    display: inline-flex;
     align-items: center;
     height: 100%;
     margin-inline-start: 2.5rem;
 }
 
-
 .menu-navegacao {
-    height: 65px;
-    background-color: #E6B9DE;
-
+    background-color:  #E6B9DE;
 }
 
-/* estilizar o item que é filho de uma class/id sem precisar atribuir uma class/id indivídual */
 .menu-navegacao>ul {
     height: 100%;
     display: flex;
-    justify-content: space-evenly;
-    gap: 1rem;
-
-
+    justify-content: flex-end;
+    align-items: stretch;
 }
 
-/* espaço: combinador de descendência
-chevron (>): combinador de FILHOS!*/
 .menu-navegacao a {
     height: 100%;
     display: inline-flex;
     align-items: center;
-    color: azure;
-    text-decoration: none;
+    color: ghostwhite;
     text-transform: uppercase;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    padding: 4px ;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.2rem; /* 120% do tamanho padrão */
+    padding: 0 1rem;
+}
 
-
-}  /* seguir hierarquia da disposição dos itens*/
-
-.menu-navegacao a:hover{
-    background-color: azure;
-    color: #E6B9DE;
-    transition-duration: 300ms;
-    font-weight: 600;
+.menu-navegacao a:hover {
     cursor: pointer;
-
+    background-color: ghostwhite;
+    color: #38393C;
+    transition-duration: 300ms;
 }
 
 .breadcrumbs {
@@ -77,25 +58,21 @@ chevron (>): combinador de FILHOS!*/
 }
 
 .breadcrumbs li {
+    height: 100%;
     display: inline-flex;
     align-items: center;
-    height: 100%;
 }
-
 
 .breadcrumbs li:not(:last-child)::after {
-    content: " >";
-    color: #8d8888;
-}
+    content: ">";
+} /* aplica para todos os elementos, menos (não) para o último filho */
 
 .breadcrumbs li:not(:last-child)>a {
-    color: #8d8888;
-}
+    color: #777;
+} /* aplica para todo <a> filho de <li>, menos (não) para o <a> filho do <li> que é último filho, descendente de .breadcrumbs */
 
 .breadcrumbs a {
-    padding: 0 1rem;
-    font-family: 'Roboto', sans-serif;
-    /* text-transform: capitalize; -> deixa a primeira letra maior que as demais*/
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .breadcrumbs li:last-child>a {
@@ -113,5 +90,11 @@ chevron (>): combinador de FILHOS!*/
 }
 
 .breadcrumbs li:last-child>a:hover {
+    text-decoration: none;
+    cursor:default;
+}  
+
+.breadcrumbs li:last-child>a:hover {
+    text-decoration: none;
     cursor: default;
 }
